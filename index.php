@@ -35,6 +35,7 @@ $resultSet = $stmt->fetchAll();
 foreach ($resultSet as $row) {
     echo $row['name'] . '\n';
 }
+echo "Student " . $sql . "<br>";
 ?>
 </body>
 </html>
