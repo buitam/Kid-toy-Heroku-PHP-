@@ -31,10 +31,12 @@ $stmt = $pdo->prepare($sql);
 //Thiết lập kiểu dữ liệu trả về
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $stmt->execute();
-$resultSet = $stmt->fetchAll();
-foreach ($resultSet as $row) {
+$row = $stmt->fetchAll();
+return $row;
+//foreach ($resultSet as $row) {
+echo $row["id"] . '\n';
     echo $row["name"] . '\n';
-}
+//}
 
 ?>
 </body>
