@@ -43,10 +43,10 @@ $stmt = $pdo->prepare($sql);
 //Thiết lập kiểu dữ liệu trả về
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $stmt->execute();
-$resultSet = $stmt->fetchAll();host=%s;port=%s;user=%s;password=%s;dbname=%s
-foreach ($resultSet as $row) {
-  echo $row['name'] . '\n';
-}
+// $resultSet = $stmt->fetchAll();host=%s;port=%s;user=%s;password=%s;dbname=%s;
+// foreach ($resultSet as $row) {
+//   echo $row['name'] . '\n';
+// }
 ?>
 
 </body>
