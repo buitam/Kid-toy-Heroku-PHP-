@@ -1,5 +1,4 @@
 <?php include ('config/config.php')?>
-
 <html>
 <head>
   <title>Heroku Test</title>
@@ -12,7 +11,6 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
   <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
       <li>
@@ -27,27 +25,30 @@
     </ul>
       </div>
 </nav>
-
-<?php 
-$sql = "SELECT id, name FROM label";
-$db = parse_url(getenv("postgres://wwdwlzfwmqeuxe:a9908f22ddf78c99c2278ddc7fe2942c1784dbb47b69d3d8a3492a02c0c9f56a@ec2-54-221-236-144.compute-1.amazonaws.com:5432/d7kjtop6ijkhiu"));
-$pdo = new PDO("pgsql:" . sprintf(
-    "host=%s;port=%s;user=%s;password=%s;dbname=%s",
-    $db["ec2-54-221-236-144.compute-1.amazonaws.com"],
-    $db["5432"],
-    $db["wwdwlzfwmqeuxe"],
-    $db["a9908f22ddf78c99c2278ddc7fe2942c1784dbb47b69d3d8a3492a02c0c9f56a"],
-    ltrim($db["d7kjtop6ijkhiu"])
-));
-$stmt = $pdo->prepare($sql);
-//Thiết lập kiểu dữ liệu trả về
-$stmt->setFetchMode(PDO::FETCH_ASSOC);
-$stmt->execute();
-$resultSet = $stmt->fetchAll();host=%s;port=%s;user=%s;password=%s;dbname=%s;
-foreach ($resultSet as $row) {
-  echo $row['name'] . '\n';
+<?php
+ define('ROOT_URL','');
+$host = "ec2-54-221-198-156.compute-1.amazonaws.com";
+$user = "zfpdnlhemvtirq";
+$password = "5a04911d431798731efce0fd4259e82e21bc3605c0c7091295c07cfe77872613";
+$dbname = "d9d290hur82qko";
+$port = "5432";
+try{
+  //Set DSN data source name
+    $dsn = "pgsql:host=" . $host . ";port=" . $port .";dbname=" . $dbname . ";user=" . $user . ";password=" . $password . ";";
+  //create a pdo instance
+  $pdo = new PDO($dsn, $user, $password);
+  $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
+  $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
+  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
+catch (PDOException $e) {
+echo 'Connection failed: ' . $e->getMessage();
+}
+  //echo 'This is Index Page';
+  $sql = 'SELECT * FROM users';
+  $stmt = $pdo->prepare($sql);
+  $stmt->execute();
+  $rowCount = $stmt->rowCount();
+  $details = $stmt->fetch();
+  print_r ($details);
 ?>
-
-</body>
-</html>
