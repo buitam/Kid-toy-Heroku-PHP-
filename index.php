@@ -32,7 +32,7 @@
 <?php
   //echo 'This is Index Page';
 
-  $sql = 'SELECT * FROM label';
+  $sql = 'SELECT name FROM label';
   $stmt = $pdo->prepare($sql);
   $stmt->execute();
   $rowCount = $stmt->rowCount();
