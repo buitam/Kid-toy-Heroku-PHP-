@@ -31,14 +31,15 @@
 
 <?php
   //echo 'This is Index Page';
-
-  $sql = 'SELECT name FROM label';
-  $stmt = $pdo->prepare($sql);
-  $stmt->execute();
-  $rowCount = $stmt->rowCount();
-  $details = $stmt->fetch();
-
-  print_r ($details);
+$sql = "SELECT id, name FROM label";
+$stmt = $pdo->prepare($sql);
+//Thiết lập kiểu dữ liệu trả về
+$stmt->setFetchMode(PDO::FETCH_ASSOC);
+$stmt->execute();
+$resultSet = $stmt->fetchAll();
+foreach ($resultSet as $row) {
+  echo $row['name'] . '\n';
+}
 ?>
 
 </body>
