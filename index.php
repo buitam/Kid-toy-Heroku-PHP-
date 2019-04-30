@@ -37,7 +37,7 @@ $pdo = new PDO("pgsql:" . sprintf(
     $db["5432"],
     $db["wwdwlzfwmqeuxe"],
     $db["a9908f22ddf78c99c2278ddc7fe2942c1784dbb47b69d3d8a3492a02c0c9f56a"],
-    ltrim($db["postgres://wwdwlzfwmqeuxe:a9908f22ddf78c99c2278ddc7fe2942c1784dbb47b69d3d8a3492a02c0c9f56a@ec2-54-221-236-144.compute-1.amazonaws.com:5432/d7kjtop6ijkhiu"], "/")
+    ltrim($db["d7kjtop6ijkhiu"])
 ));
 $stmt = $pdo->prepare($sql);
 //Thiết lập kiểu dữ liệu trả về
