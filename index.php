@@ -26,7 +26,7 @@
       </div>
 </nav>
 <?php
- define('ROOT_URL','');
+ define('ROOT_URL','https://simpletam1122.herokuapp.com/');
 $host = "ec2-54-221-198-156.compute-1.amazonaws.com";
 $user = "zfpdnlhemvtirq";
 $password = "5a04911d431798731efce0fd4259e82e21bc3605c0c7091295c07cfe77872613";
@@ -47,8 +47,11 @@ echo 'Connection failed: ' . $e->getMessage();
   //echo 'This is Index Page';
   $sql = 'SELECT * FROM users';
   $stmt = $pdo->prepare($sql);
-  $stmt->execute();
-  $rowCount = $stmt->rowCount();
-  $details = $stmt->fetch();
-  print_r ($details);
+//Thiết lập kiểu dữ liệu trả về
+$stmt->setFetchMode(PDO::FETCH_ASSOC);
+$stmt->execute();
+$resultSet = $stmt->fetchAll();
+foreach ($resultSet as $row) {
+  echo $row['name'] . '\n';
+}
 ?>
