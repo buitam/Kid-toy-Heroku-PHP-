@@ -11,7 +11,6 @@ echo "Hello abc XYZ!";
 ?>
 
 <?php
-define('ROOT_URL','');
 $txt1 = "Learn PHP";
 $txt2 = "FPT Greenwich";
 $x = 5;
@@ -19,7 +18,7 @@ $y = 5;
 echo "<h2>" . $txt1 . "</h2>";
 echo "Study PHP at " . $txt2 . "<br>";
 echo $x + $y;
-
+$db = parse_url(getenv("postgres://wwdwlzfwmqeuxe:a9908f22ddf78c99c2278ddc7fe2942c1784dbb47b69d3d8a3492a02c0c9f56a@ec2-54-221-236-144.compute-1.amazonaws.com:5432/d7kjtop6ijkhiu"));
 $host = "ec2-54-221-236-144.compute-1.amazonaws.com";
 $user = "wwdwlzfwmqeuxe";
 $password = "a9908f22ddf78c99c2278ddc7fe2942c1784dbb47b69d3d8a3492a02c0c9f56a";
@@ -38,12 +37,15 @@ catch (PDOException $e) {
 echo 'Connection failed: ' . $e->getMessage();
 }
 
- $sql = 'SELECT * FROM label';
-  $stmt = $pdo->prepare($sql);
-  $stmt->execute();
-  $rowCount = $stmt->rowCount();
-  $details = $stmt->fetch();
-  print_r ($details);
+$sql = "SELECT id, name FROM label";
+$stmt = $pdo->prepare($sql);
+//Thiết lập kiểu dữ liệu trả về
+$stmt->setFetchMode(PDO::FETCH_ASSOC);
+$stmt->execute();
+$resultSet = $stmt->fetchAll();
+foreach ($resultSet as $row) {
+    echo $row['name'] . '\n';
+}
 ?>
 </body>
 </html> 
