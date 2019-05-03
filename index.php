@@ -5,7 +5,7 @@
 <h1>My PHP page</h1>
 
 <?php 
-$sql = "SELECT id, name FROM label";
+$sql = "SELECT * FROM product";
 $db = parse_url(getenv("DATABASE_URL"));
 $pdo = new PDO("pgsql:" . sprintf(
     "host=%s;port=%s;user=%s;password=%s;dbname=%s",
