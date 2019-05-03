@@ -225,13 +225,13 @@ $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $stmt->execute();
 $resultSet = $stmt->fetchAll();
 foreach ($resultSet as $row) {
-	echo $row['Productid'] . "<br/>";
-	echo $row['Catid'] . "<br/>";
-	echo $row['Productname'] . "<br/>";
-	echo $row['Price'] . "<br/>";
-	echo $row['Image'] . "<br/>";
-	echo $row['Description'] . "<br/>";
-	echo $row['Discount'] . "<br/>";
+	echo "productid" . $row['productid'] . "<br/>";
+	echo "catid" . $row['catid'] . "<br/>";
+	echo "productname" . $row['productname'] . "<br/>";
+	echo "price" . $row['price'] . "<br/>";
+	echo "image" . $row['image'] . "<br/>";
+	echo "description" . $row['description'] . "<br/>";
+	echo "discount" . $row['discount'] . "<br/>";
 }
 ?>	
 
