@@ -22,10 +22,10 @@ $stmt->execute();
 $resultSet = $stmt->fetchAll();
 foreach ($resultSet as $row) {
 	echo $row['productname'] . "<br/>";
-	echo $row['price'] . '\n';
-	echo $row['image'] . '\n';
-	echo $row['description'] . '\n';
-	echo $row['discount'] . '\n';
+	echo $row['price'] . "<br/>";
+	echo $row['image'] . "<br/>";
+	echo $row['description'] . "<br/>";
+	echo $row['discount'] . "<br/>";
 
 }
 ?>
