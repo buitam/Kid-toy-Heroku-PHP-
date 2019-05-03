@@ -145,7 +145,7 @@ window.onclick = function(event) {
 					<li><a href="VindeFrance.php" class="hvr-underline-from-center"> Home</a></li>
 					<li><a href="VindeFrance.php" class="hvr-underline-from-center"> 
 
-<?php include 'catalogy-list.php';?>
+<!-- <?php include 'catalogy-list.php';?> -->
 </a></li>
 					
 					
@@ -209,7 +209,7 @@ window.onclick = function(event) {
 
 <div class="container-fluid" style="margin: 25px;
     margin-left: 230px;">
-<?php include 'Product_list.php';?>
+<!-- <?php include 'Product_list.php';?> -->
 </div>
 
 
