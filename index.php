@@ -146,32 +146,6 @@ window.onclick = function(event) {
 					<li><a href="VindeFrance.php" class="hvr-underline-from-center"> 
 
 </a></li>
-				<?php 
-$sql = "SELECT * FROM product";
-$db = parse_url(getenv("DATABASE_URL"));
-$pdo = new PDO("pgsql:" . sprintf(
-    "host=%s;port=%s;user=%s;password=%s;dbname=%s",
-    $db["host"],
-    $db["port"],
-    $db["user"],
-    $db["pass"],
-    ltrim($db["path"], "/")
-));
-$stmt = $pdo->prepare($sql);
-//Thiết lập kiểu dữ liệu trả về
-$stmt->setFetchMode(PDO::FETCH_ASSOC);
-$stmt->execute();
-$resultSet = $stmt->fetchAll();
-foreach ($resultSet as $row) {
-	echo $row['Productid'] . "<br/>";
-	echo $row['Catid'] . "<br/>";
-	echo $row['Productname'] . "<br/>";
-	echo $row['Price'] . "<br/>";
-	echo $row['Image'] . "<br/>";
-	echo $row['Description'] . "<br/>";
-	echo $row['Discount'] . "<br/>";
-}
-?>	
 					
 				</ul>
 
@@ -234,7 +208,32 @@ foreach ($resultSet as $row) {
 <div class="container-fluid" style="margin: 25px;
     margin-left: 230px;">
 </div>
-
+<?php 
+$sql = "SELECT * FROM product";
+$db = parse_url(getenv("DATABASE_URL"));
+$pdo = new PDO("pgsql:" . sprintf(
+    "host=%s;port=%s;user=%s;password=%s;dbname=%s",
+    $db["host"],
+    $db["port"],
+    $db["user"],
+    $db["pass"],
+    ltrim($db["path"], "/")
+));
+$stmt = $pdo->prepare($sql);
+//Thiết lập kiểu dữ liệu trả về
+$stmt->setFetchMode(PDO::FETCH_ASSOC);
+$stmt->execute();
+$resultSet = $stmt->fetchAll();
+foreach ($resultSet as $row) {
+	echo $row['Productid'] . "<br/>";
+	echo $row['Catid'] . "<br/>";
+	echo $row['Productname'] . "<br/>";
+	echo $row['Price'] . "<br/>";
+	echo $row['Image'] . "<br/>";
+	echo $row['Description'] . "<br/>";
+	echo $row['Discount'] . "<br/>";
+}
+?>	
 
 <!-- chat-->
 <button class="open-button" onclick="openForm()">Chat</button>
