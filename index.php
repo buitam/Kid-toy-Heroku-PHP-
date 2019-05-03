@@ -22,8 +22,8 @@ $stmt->execute();
 $resultSet = $stmt->fetchAll();
 foreach ($resultSet as $row) {
 	echo $row["productid"] . "<br/>";
-	echo $row["Catid"] . "<br/>";
-	echo $row["Productname"] . "<br/>";
+	echo $row['catid'] . "<br/>";
+	echo $row['productname'] . "<br/>";
 	echo $row["Price"] . "<br/>";
 	echo $row["Image"] . "<br/>";
 	echo $row["Description"] . "<br/>";
