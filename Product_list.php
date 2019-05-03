@@ -3,21 +3,18 @@
 require_once'ketnoi.php';
 
 $sql = "SELECT * FROM product";
-
-
 $stmt = $pdo->prepare($sql);
 //Thiết lập kiểu dữ liệu trả về
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $stmt->execute();
-while($row = $stmt->fetchAll()
+while($row = $stmt->fetchAll()){
 
-    {
     	?>
 	
 
 
 			<div class="oneproduct">
-				<a class="hinhproduct" href="Product_detail.php?Productid=<?php echo $row["Productid"]?>">
+				<a class="hinhproduct" href="Product_detail2.php?Productid=<?php echo $row["Productid"]?>">
 					<div class="faded">
 					
 					<img src="<?php echo $row["Image"]?>" class="image">
@@ -42,9 +39,12 @@ while($row = $stmt->fetchAll()
 								<span><?php echo $row["Price"]?> $</span>
 						
 					</div>
+
+				
+
 			</div>
 
 <?php
-	}
-
+	
+}
 ?>
