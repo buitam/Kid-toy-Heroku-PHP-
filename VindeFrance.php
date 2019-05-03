@@ -145,9 +145,7 @@ window.onclick = function(event) {
 					<li><a href="VindeFrance.php" class="hvr-underline-from-center"> Home</a></li>
 					<li><a href="VindeFrance.php" class="hvr-underline-from-center"> 
 
-<?php include 'catalogy-list.php';?>
 </a></li>
-					
 					
 				</ul>
 
@@ -209,9 +207,33 @@ window.onclick = function(event) {
 
 <div class="container-fluid" style="margin: 25px;
     margin-left: 230px;">
-<?php include 'Product_list.php';?>
 </div>
-
+<?php 
+$sql = "SELECT * FROM product";
+$db = parse_url(getenv("DATABASE_URL"));
+$pdo = new PDO("pgsql:" . sprintf(
+    "host=%s;port=%s;user=%s;password=%s;dbname=%s",
+    $db["host"],
+    $db["port"],
+    $db["user"],
+    $db["pass"],
+    ltrim($db["path"], "/")
+));
+$stmt = $pdo->prepare($sql);
+//Thiết lập kiểu dữ liệu trả về
+$stmt->setFetchMode(PDO::FETCH_ASSOC);
+$stmt->execute();
+$resultSet = $stmt->fetchAll();
+foreach ($resultSet as $row) {
+	echo $row['Productid'] . "<br/>";
+	echo $row['Catid'] . "<br/>";
+	echo $row['Productname'] . "<br/>";
+	echo $row['Price'] . "<br/>";
+	echo $row['Image'] . "<br/>";
+	echo $row['Description'] . "<br/>";
+	echo $row['Discount'] . "<br/>";
+}
+?>	
 
 <!-- chat-->
 <button class="open-button" onclick="openForm()">Chat</button>
