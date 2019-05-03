@@ -2,49 +2,21 @@
 
 require_once'ketnoi.php';
 
-$sql = "SELECT * FROM product";
+$sql = "SELECT * FROM catalogy";
 $stmt = $pdo->prepare($sql);
 //Thiết lập kiểu dữ liệu trả về
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $stmt->execute();
-while($row = $stmt->fetchAll()){
-
+$row = $stmt->fetchAll();
     	?>
 	
 
-
-			<div class="oneproduct">
-				<a class="hinhproduct" href="Product_detail2.php?Productid=<?php echo $row["Productid"]?>">
-					<div class="faded">
+				<a href="catalogy-detail2.php?Catid=<?php echo $row["Catid"]?>">
 					
-					<img src="<?php echo $row["Image"]?>" class="image">
-					<div class="middle">
-				    <div class="discountbox">
-				    	<p>DISCOUNT <?php echo $row["Discount"]?> % </p>
-				    	<p>ONLY 
-				    		<?php
-				    		$Price=$row["Price"];
-				    		$Discount=$row["Discount"];
-				    		echo $Price-($Price * $Discount /100);
-				    		?>$
-				    	</p>
-				    </div>
-				  </div>
-				</div>
-				</a>
-					<div class="thongtinproduct">
-						<span><?php echo $row["Productname"]?></span><br>
-						<span class="explore" >EXPLORE NOW</span><br>
-								<img src="cart-2.png" alt="hình giỏ hàng">
-								<span><?php echo $row["Price"]?> $</span>
-						
-					</div>
-
-				
-
-			</div>
+				    	<span class="hvr-wobble-vertical" style="padding-right:20px"><?php echo $row["Catname"]?></span>
+				    	
 
 <?php
-	
-}
+	}
+
 ?>
