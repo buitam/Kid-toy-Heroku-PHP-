@@ -1,14 +1,15 @@
-<?php
 
-	$hostname='localhost';
-	$username = 'root';
-	$password = '';
-	$dbname = 'vindefrance';
+	<?php 
 
-// Create connection
-$conn = new mysqli($hostname, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+$db = parse_url(getenv("DATABASE_URL"));
+$pdo = new PDO("pgsql:" . sprintf(
+    "host=%s;port=%s;user=%s;password=%s;dbname=%s",
+    $db["host"],
+    $db["port"],
+    $db["user"],
+    $db["pass"],
+    ltrim($db["path"], "/")
+));
 ?>
+
+	

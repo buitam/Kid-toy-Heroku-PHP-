@@ -3,10 +3,15 @@
 require_once'ketnoi.php';
 
 $sql = "SELECT * FROM product";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
+
+
+$stmt = $pdo->prepare($sql);
+//Thiết lập kiểu dữ liệu trả về
+$stmt->setFetchMode(PDO::FETCH_ASSOC);
+$stmt->execute();
+while($row = $stmt->fetchAll()
+
+    {
     	?>
 	
 
@@ -41,5 +46,5 @@ if ($result->num_rows > 0) {
 
 <?php
 	}
-}
+
 ?>
