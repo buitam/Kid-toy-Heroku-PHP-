@@ -21,7 +21,7 @@ $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $stmt->execute();
 $resultSet = $stmt->fetchAll();
 foreach ($resultSet as $row) {
-  echo $row['name'] . '\n';
+  echo $row['name'];
 }
 ?>
 </body>
