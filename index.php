@@ -21,7 +21,7 @@ $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $stmt->execute();
 $resultSet = $stmt->fetchAll();
 foreach ($resultSet as $row) {
-	echo $row['Productid'] . "<br/>";
+	echo $row["productid"] . "<br/>";
 	echo $row['Catid'] . "<br/>";
 	echo $row['Productname'] . "<br/>";
 	echo $row['Price'] . "<br/>";
