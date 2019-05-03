@@ -7,8 +7,7 @@ $stmt = $pdo->prepare($sql);
 //Thiết lập kiểu dữ liệu trả về
 $stmt->setFetchMode(PDO::FETCH_ASSOC);
 $stmt->execute();
-while($row = $stmt->fetchAll()){
-
+$row = $stmt->fetchAll();
     	?>
 	
 
