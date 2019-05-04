@@ -229,7 +229,8 @@ foreach ($resultSet as $row) {
 	echo "catid" . $row['catid'] . "<br/>";
 	echo "productname" . $row['productname'] . "<br/>";
 	echo "price" . $row['price'] . "<br/>";
-	<img src="echo "image" . $row['image'] . "<br/>"">;
+	<img src="echo $row["image"]">;
+	
 	echo "description" . $row['description'] . "<br/>";
 	echo "discount" . $row['discount'] . "<br/>";
 }
