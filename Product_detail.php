@@ -1,10 +1,4 @@
-<?php
-include 'ketnoi.php';
-$productid = $_GET["productid"];
-$sql = "SELECT * FROM product where productid ='".$productid . "'";
-$result = pg_query($connection,$sql);
-$row = pg_fetch_assoc($result);
- ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -207,6 +201,22 @@ window.onclick = function(event) {
   </div>
 </div>
 <!-- chi tiết sp-->
+<?php
+include 'ketnoi.php';
+$productid = $_GET["productid"];
+$sql = "SELECT * FROM product where productid =$productid ";
+$result = pg_query($connection,$sql);
+ if (pg_num_rows($result) > 0) {
+		            // output data of each row
+		            while($row = pg_fetch_assoc($result)) {
+		            	$productid = $row['productid'];
+		              	$price = $row['price'];
+		              	$image = $row['image'];
+		              	$discount = $row['discount'];
+		              	$productname = $row['productname'];
+		         
+		          ?>
+
 		<div class="container" >
 
 <table style="margin-bottom: 30px; margin-top: 30px;">
@@ -252,7 +262,9 @@ window.onclick = function(event) {
                     </script>
 
 
-	
+	 <?php }} 
+
+		       ?>
 
 
 		<!-- chat-->
