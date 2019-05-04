@@ -9,6 +9,7 @@
 		              $price = $row['price'];
 		          ?>
 		         <li><a href="Product_detail.php?productname=<?= $productname; ?>"><?= $price; ?></a></li>
+		          <li><a href="Product_detail.php?productname=<?= $productname; ?>"><?= $productname; ?></a></li>
 		       <?php }} 
 
 		       ?>
