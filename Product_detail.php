@@ -1,9 +1,9 @@
 <?php
-require_once'ketnoi.php';
-$Productid = $_GET["Productid"];
-$sql = "SELECT * FROM product where Productid ='".$Productid . "'";
-$result = $conn->query($sql);
-$row = $result->fetch_assoc();
+include 'ketnoi.php';
+$productid = $_GET["productid"];
+$sql = "SELECT * FROM product where productid ='".$productid . "'";
+$result = pg_query($connection,$sql);
+$row = pg_fetch_assoc($result);
  ?>
 <!DOCTYPE html>
 <html>
@@ -213,30 +213,30 @@ window.onclick = function(event) {
 			 <tr>
   <td rowspan="6"><img src="<?php echo $row["Image"]?>" alt="Chania" width="300" height="300" ></td>
     <td style="    padding-right: 20px;"><b>NAME:   </b></td>
-    <td style="font-size: 20px"><?php echo $row["Productname"]?></td>
+    <td style="font-size: 20px"><?php echo $row["productname"]?></td>
     
   </tr>
   <tr>
     <td style="    padding-right: 20px;"><b>PRICE:   </b></td>
-    <td style="font-size: 20px"><del><?php echo $row["Price"]?> $ </del></td>
+    <td style="font-size: 20px"><del><?php echo $row["price"]?> $ </del></td>
   </tr>
 
    <tr>
     <td style="    padding-right: 25px; color: red;"><b>DISCOUNT:   </b></td>
-    <td style="font-size: 25px;color: red"><b> <?php echo $row["Discount"]?> % </b></td>
+    <td style="font-size: 25px;color: red"><b> <?php echo $row["discount"]?> % </b></td>
   </tr>
 
 
   <tr>
     <td style="    padding-right: 20px; color: red"><b>ONLY:   </b></td>
-    <td style="font-size: 20px;color: red"><b><?php $Price=$row["Price"];
-			$Discount=$row["Discount"];
-			echo $Price-($Price * $Discount /100);?>$</b></td>
+    <td style="font-size: 20px;color: red"><b><?php $price=$row["price"];
+			$discount=$row["discount"];
+			echo $price-($price * $discount /100);?>$</b></td>
   </tr>
 
   <tr>
     <td style="    padding-right: 20px;"><b>DESCRIPTION:</b></td>
-    <td style="font-size: 20px"><?php echo $row["Description"]?></td>
+    <td style="font-size: 20px"><?php echo $row["description"]?></td>
   </tr>
 
   <tr><td></td>
