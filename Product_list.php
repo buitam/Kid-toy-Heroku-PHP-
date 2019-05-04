@@ -22,13 +22,7 @@
 					<div class="middle">
 				    <div class="discountbox">
 				    	<p>DISCOUNT <?= $Discount; ?> % </p>
-				    	<p>ONLY 
-				    		<?php
-				    		$Price=$row["Price"];
-				    		$Discount=$row["Discount"];
-				    		echo $Price-($Price * $Discount /100);
-				    		?>$
-				    	</p>
+				 
 				    </div>
 				  </div>
 				</div>
