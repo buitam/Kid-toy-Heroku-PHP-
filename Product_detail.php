@@ -220,12 +220,51 @@ $result = pg_query($connection,$sql1);
 
 		<div class="container" >
 
-<p>DISCOUNT <?= $discount; ?> % </p>
+<p>DISCOUNT: <?= $discount; ?> % </p>
 <p>NAME : <?= $name; ?></p>
 
 <?php }} 
 
 		       ?>
+
+
+		       	<?php
+		include 'ketnoi.php';
+		$productid =$_GET['productid'];
+        $sql1 = "SELECT productid, productname, price, image, discount, description FROM product WHERE productid = '$productid'";
+        $result = pg_query($connection,$sql1);
+
+            if (pg_num_rows($result) > 0) {
+            while($rowproduct = pg_fetch_assoc($result)) {
+              $productid = $rowproduct['productid'];
+              $productname = $rowproduct['productname'];
+              $price = $rowproduct['price'];
+              $image = $rowproduct['image'];
+              $discount = $rowproduct['discount'];
+              $description = $rowproduct['description'];
+        ?>
+				<form action="">
+				<div class="Chitietsanpham1">
+					<div class="anh"><img src="<?= $image; ?>" alt="">
+					</div>
+					<div class="chitiet">	<br>Tên Sản Phẩm: <?= $productname; ?> <br> <br>
+											Mô tả: <?= $description; ?> <br> <br>
+											<hr> <br>
+											Giá Sản Phẩm: <?= $price; ?> vnđ <br> <br>
+											Số lượng sản phẩm: <?= $discount; ?> <br> <br>
+											Số lượng sản phẩm bạn muốn mua: <input type="number" style="width: 100px;"> <br> <br> <br>
+											<a href=""><input type="button" value="Mua Ngay" style=" background-color: #FF7302; text-decoration-color: #FFFFFF; width:40%; height: 30px; margin: 20px" ></a>
+											<a href=""><input type="button" value="Thêm vào giỏ hàng" style=" background-color: #FF7302; text-decoration-color: #FFFFFF; width:40%; height: 30px; margin: 15px" ></a>
+					</div>
+				</div>
+				</form>
+				<?php
+			}
+			}
+			
+			?>
+
+
 <script type="text/javascript">
                         function show(){
                           alert("Buying Successful!");
