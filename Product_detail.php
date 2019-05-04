@@ -209,7 +209,7 @@ $result = pg_query($connection,$sql);
  if (pg_num_rows($result) > 0) {
 		            // output data of each row
 		            while($row = pg_fetch_assoc($result)) {
-		            	$productid = $row['productid'];
+		        
 		              	$price = $row['price'];
 		              	$image = $row['image'];
 		              	$discount = $row['discount'];
@@ -220,7 +220,7 @@ $result = pg_query($connection,$sql);
 
 		<div class="container" >
 
-<table style="margin-bottom: 30px; margin-top: 30px;">
+<!-- <table style="margin-bottom: 30px; margin-top: 30px;">
 			 <tr>
   <td rowspan="6"><img src="<?= $image; ?>" alt="Chania" width="300" height="300" ></td>
     <td style="    padding-right: 20px;"><b>NAME:   </b></td>
@@ -257,7 +257,9 @@ $result = pg_query($connection,$sql);
                       </tr>
                     
                      
-</table>
+</table> -->
+<p>DISCOUNT <?= $discount; ?> % </p>
+<p>NAME : <?= $name; ?></p>
 
 <?php }} 
 
