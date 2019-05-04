@@ -1,17 +1,24 @@
 <?php 
-
-require_once'ketnoi.php';
+$db = parse_url(getenv("DATABASE_URL"));
+$pdo = new PDO("pgsql:" . sprintf(
+    "host=%s;port=%s;user=%s;password=%s;dbname=%s",
+    $db["host"],
+    $db["port"],
+    $db["user"],
+    $db["pass"],
+    ltrim($db["path"], "/")
+));
 
 $sql = "SELECT * FROM product";
-$stmt = $pdo->prepare($sql);
-//Thiết lập kiểu dữ liệu trả về
-$stmt->setFetchMode(PDO::FETCH_ASSOC);
-$stmt->execute();
-$row = $stmt->fetchAll();
+$result = pg_query($pdo, $sql);
+if (!$result) {
+  echo "An error occurred.";
+  exit;
+}
+
+while ($row = pg_fetch_assoc($result)) {
+
     	?>
-	
-
-
 			<div class="oneproduct">
 				<a class="hinhproduct" href="Product_detail2.php?Productid=<?php echo $row["Productid"]?>">
 					<div class="faded">
@@ -46,4 +53,5 @@ $row = $stmt->fetchAll();
 <?php
 	
 }
+
 ?>
