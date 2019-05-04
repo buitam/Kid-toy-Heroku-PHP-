@@ -201,32 +201,6 @@ window.onclick = function(event) {
   </div>
 </div>
 <!-- chi tiết sp-->
-<?php
-include 'ketnoi.php';
-$productid = $_GET['productid'];
-$sql1 = "SELECT productid, image, price, discount, productname, description FROM product where productid =$productid ";
-$result = pg_query($connection,$sql1);
- if (pg_num_rows($result) > 0) {
-		            // output data of each row
-		            while($row1 = pg_fetch_assoc($result)) {
-		        
-		              	$price = $row1['price'];
-		              	$image = $row1['image'];
-		              	$discount = $row1['discount'];
-		              	$productname = $row1['productname'];
-		              	$description = $row1['description'];
-		         
-		          ?>
-
-		<div class="container" >
-
-<p>DISCOUNT: <?= $discount; ?> % </p>
-<p>NAME : <?= $name; ?></p>
-
-<?php }} 
-
-		       ?>
-
 
 		       	<?php
 		include 'ketnoi.php';
@@ -264,15 +238,6 @@ $result = pg_query($connection,$sql1);
 			
 			?>
 
-
-<script type="text/javascript">
-                        function show(){
-                          alert("Buying Successful!");
-                        }
-                    </script>
-
-
-	 
 
 
 		<!-- chat-->
