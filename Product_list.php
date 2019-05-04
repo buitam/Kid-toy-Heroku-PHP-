@@ -1,32 +1,32 @@
 
 		<?php
 		          include 'ketnoi.php';
-		            $sql = "SELECT Productid, Image, price, Discount, Productname FROM product";
+		            $sql = "SELECT productid, image, price, discount, productname FROM product";
 		            $result = pg_query($connection,$sql);
 		            if (pg_num_rows($result) > 0) {
 		            // output data of each row
 		            while($row = pg_fetch_assoc($result)) {
-		            	$Productid = $row['Productid'];
+		            	$productid = $row['productid'];
 		              	$price = $row['price'];
-		              	$Image = $row['Image'];
-		              	$Discount = $row['Discount'];
-		              	$Productname = $row['Productname'];
+		              	$image = $row['image'];
+		              	$discount = $row['discount'];
+		              	$productname = $row['productname'];
 		         
 		          ?>
 		        <div class="oneproduct">
 					<div class="faded">
 					
-					<img src="<?= $Image; ?>" class="image">
+					<img src="<?= $image; ?>" class="image">
 					<div class="middle">
 				    <div class="discountbox">
-				    	<p>DISCOUNT <?= $Discount; ?> % </p>
+				    	<p>DISCOUNT <?= $discount; ?> % </p>
 				 
 				    </div>
 				  </div>
 				</div>
 				</a>
 					<div class="thongtinproduct">
-						<span><?= $Productname; ?>
+						<span><?= $productname; ?>
 							
 						</span><br>
 						<span class="explore" >EXPLORE NOW</span><br>
