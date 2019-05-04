@@ -147,6 +147,7 @@ window.onclick = function(event) {
 
 </a></li>
 					
+					
 				</ul>
 
 		</div>
@@ -207,34 +208,9 @@ window.onclick = function(event) {
 
 <div class="container-fluid" style="margin: 25px;
     margin-left: 230px;">
+<?php include 'Product_list.php';?>
 </div>
-<?php 
-$sql = "SELECT * FROM product";
-$db = parse_url(getenv("DATABASE_URL"));
-$pdo = new PDO("pgsql:" . sprintf(
-    "host=%s;port=%s;user=%s;password=%s;dbname=%s",
-    $db["host"],
-    $db["port"],
-    $db["user"],
-    $db["pass"],
-    ltrim($db["path"], "/")
-));
-$stmt = $pdo->prepare($sql);
-//Thiết lập kiểu dữ liệu trả về
-$stmt->setFetchMode(PDO::FETCH_ASSOC);
-$stmt->execute();
-$resultSet = $stmt->fetchAll();
-foreach ($resultSet as $row) {
-	echo "productid" . $row['productid'] . "<br/>";
-	echo "catid" . $row['catid'] . "<br/>";
-	echo "productname" . $row['productname'] . "<br/>";
-	echo "price" . $row['price'] . "<br/>";
-	echo "<img src="" .  $row["image"] .";
-	
-	echo "description" . $row['description'] . "<br/>";
-	echo "discount" . $row['discount'] . "<br/>";
-}
-?>	
+
 
 <!-- chat-->
 <button class="open-button" onclick="openForm()">Chat</button>
