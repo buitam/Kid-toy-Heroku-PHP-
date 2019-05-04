@@ -205,18 +205,19 @@ window.onclick = function(event) {
 		       	<?php
 		include 'ketnoi.php';
 		$productid =$_GET['productid'];
-        $sql1 = "SELECT productid, productname, price, image, discount, description FROM product WHERE productid = '$productid'";
-        $result = pg_query($connection,$sql1);
-
-            if (pg_num_rows($result) > 0) {
-            while($rowproduct = pg_fetch_assoc($result)) {
-              $productid = $rowproduct['productid'];
-              $productname = $rowproduct['productname'];
-              $price = $rowproduct['price'];
-              $image = $rowproduct['image'];
-              $discount = $rowproduct['discount'];
-              $description = $rowproduct['description'];
-        ?>
+		            $sql = "SELECT productid, image, price, discount, productname FROM product  WHERE productid = '$productid'";
+		            $result = pg_query($connection,$sql);
+		            if (pg_num_rows($result) > 0) {
+		            // output data of each row
+		            while($row = pg_fetch_assoc($result)) {
+		            	$productid = $row['productid'];
+		              	$price = $row['price'];
+		              	$image = $row['image'];
+		              	$discount = $row['discount'];
+		              	$productname = $row['productname'];
+		              	$description = $row['description'];
+		         
+		          ?>
 			
 
 <table style="margin-bottom: 30px; margin-top: 30px;">
