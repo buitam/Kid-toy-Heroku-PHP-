@@ -15,7 +15,7 @@
 		          ?>
 		        <div class="oneproduct">
 					<div class="faded">
-					<a class="hinhproduct" href="Product_detail.php?productid=<?php echo $row["productid"]?>">
+					<a class="hinhproduct" href="Product_detail.php?productid=<?= $productid; ?>">
 					<img src="<?= $image; ?>" class="image">
 					<div class="middle">
 				    <div class="discountbox">
