@@ -203,61 +203,23 @@ window.onclick = function(event) {
 <!-- chi tiết sp-->
 <?php
 include 'ketnoi.php';
-$productid = $_GET["productid"];
-$sql = "SELECT * FROM product where productid =$productid ";
-$result = pg_query($connection,$sql);
+$productid = $_GET['productid'];
+$sql1 = "SELECT productid, image, price, discount, productname, description FROM product where productid =$productid ";
+$result = pg_query($connection,$sql1);
  if (pg_num_rows($result) > 0) {
 		            // output data of each row
-		            while($row = pg_fetch_assoc($result)) {
+		            while($row1 = pg_fetch_assoc($result)) {
 		        
-		              	$price = $row['price'];
-		              	$image = $row['image'];
-		              	$discount = $row['discount'];
-		              	$productname = $row['productname'];
-		              	$description = $row['description'];
+		              	$price = $row1['price'];
+		              	$image = $row1['image'];
+		              	$discount = $row1['discount'];
+		              	$productname = $row1['productname'];
+		              	$description = $row1['description'];
 		         
 		          ?>
 
 		<div class="container" >
 
-<!-- <table style="margin-bottom: 30px; margin-top: 30px;">
-			 <tr>
-  <td rowspan="6"><img src="<?= $image; ?>" alt="Chania" width="300" height="300" ></td>
-    <td style="    padding-right: 20px;"><b>NAME:   </b></td>
-    <td style="font-size: 20px"><?= $productname; ?></td>
-    
-  </tr>
-  <tr>
-    <td style="    padding-right: 20px;"><b>PRICE:   </b></td>
-    <td style="font-size: 20px"><del><?= $price; ?> $ </del></td>
-  </tr>
-
-   <tr>
-    <td style="    padding-right: 25px; color: red;"><b>DISCOUNT:   </b></td>
-    <td style="font-size: 25px;color: red"><b><?= $discount; ?> % </b></td>
-  </tr>
-
-
-  <tr>
-    <td style="    padding-right: 20px; color: red"><b>ONLY:   </b></td>
-    <td style="font-size: 20px;color: red"><b><?php
-				    		$price=$row["price"];
-				    		$discount=$row["discount"];
-				    		echo $price-($price * $discount /100);
-				    		?>$</b></td>
-  </tr>
-
-  <tr>
-    <td style="    padding-right: 20px;"><b>DESCRIPTION:</b></td>
-    <td style="font-size: 20px"><?= $description; ?></td>
-  </tr>
-
-  <tr><td></td>
-  	<td><br><button onclick="show()" style="width: 100px;color: white">BUY NOW</button></td>
-                      </tr>
-                    
-                     
-</table> -->
 <p>DISCOUNT <?= $discount; ?> % </p>
 <p>NAME : <?= $name; ?></p>
 
