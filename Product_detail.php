@@ -214,6 +214,7 @@ $result = pg_query($connection,$sql);
 		              	$image = $row['image'];
 		              	$discount = $row['discount'];
 		              	$productname = $row['productname'];
+		              	$description = $row['description'];
 		         
 		          ?>
 
@@ -223,30 +224,32 @@ $result = pg_query($connection,$sql);
 			 <tr>
   <td rowspan="6"><img src="<?php echo $row["image"]?>" alt="Chania" width="300" height="300" ></td>
     <td style="    padding-right: 20px;"><b>NAME:   </b></td>
-    <td style="font-size: 20px"><?php echo $row["productname"]?></td>
+    <td style="font-size: 20px"><?= $productname; ?></td>
     
   </tr>
   <tr>
     <td style="    padding-right: 20px;"><b>PRICE:   </b></td>
-    <td style="font-size: 20px"><del><?php echo $row["price"]?> $ </del></td>
+    <td style="font-size: 20px"><del><?= $price; ?> $ </del></td>
   </tr>
 
    <tr>
     <td style="    padding-right: 25px; color: red;"><b>DISCOUNT:   </b></td>
-    <td style="font-size: 25px;color: red"><b> <?php echo $row["discount"]?> % </b></td>
+    <td style="font-size: 25px;color: red"><b><?= $discount; ?> % </b></td>
   </tr>
 
 
   <tr>
     <td style="    padding-right: 20px; color: red"><b>ONLY:   </b></td>
-    <td style="font-size: 20px;color: red"><b><?php $price=$row["price"];
-			$discount=$row["discount"];
-			echo $price-($price * $discount /100);?>$</b></td>
+    <td style="font-size: 20px;color: red"><b><?php
+				    		$price=$row["price"];
+				    		$discount=$row["discount"];
+				    		echo $price-($price * $discount /100);
+				    		?>$</b></td>
   </tr>
 
   <tr>
     <td style="    padding-right: 20px;"><b>DESCRIPTION:</b></td>
-    <td style="font-size: 20px"><?php echo $row["description"]?></td>
+    <td style="font-size: 20px"><?= $description; ?></td>
   </tr>
 
   <tr><td></td>
@@ -255,6 +258,10 @@ $result = pg_query($connection,$sql);
                     
                      
 </table>
+
+<?php }} 
+
+		       ?>
 <script type="text/javascript">
                         function show(){
                           alert("Buying Successful!");
@@ -262,9 +269,7 @@ $result = pg_query($connection,$sql);
                     </script>
 
 
-	 <?php }} 
-
-		       ?>
+	 
 
 
 		<!-- chat-->
