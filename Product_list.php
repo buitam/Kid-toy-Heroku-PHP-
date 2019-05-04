@@ -1,21 +1,27 @@
 
 		<?php
 		          include 'ketnoi.php';
-		            $sql = "SELECT * FROM product";
+		            $sql = "SELECT Productid, Image, price, Discount, Productname FROM product";
 		            $result = pg_query($connection,$sql);
 		            if (pg_num_rows($result) > 0) {
 		            // output data of each row
 		            while($row = pg_fetch_assoc($result)) {
+		            	$Productid = $row['Productid'];
+		              	$price = $row['price'];
+		              	$Image = $row['Image'];
+		              	$Discount = $row['Discount'];
+		              	$Productname = $row['Productname'];
+		             
 		         
 		          ?>
 		        <div class="oneproduct">
-				<a class="hinhproduct" href="Product_detail.php?Productid=<?php echo $row["Productid"]?>">
+				<a class="hinhproduct" href="Product_detail.php?Productid<?= $Productid; ?>"><?= $Productid; ?>
 					<div class="faded">
 					
-					<img src="<?php echo $row["Image"]?>" class="image">
+					<img src="<?= $Image; ?>" class="image">
 					<div class="middle">
 				    <div class="discountbox">
-				    	<p>DISCOUNT <?php echo $row["Discount"]?> % </p>
+				    	<p>DISCOUNT <?= $Discount; ?> % </p>
 				    	<p>ONLY 
 				    		<?php
 				    		$Price=$row["Price"];
@@ -28,10 +34,12 @@
 				</div>
 				</a>
 					<div class="thongtinproduct">
-						<span><?php echo $row["Productname"]?></span><br>
+						<span><?= $Productname; ?>
+							
+						</span><br>
 						<span class="explore" >EXPLORE NOW</span><br>
 								<img src="cart-2.png" alt="hình giỏ hàng">
-								<span><?php echo $row["Price"]?> $</span>
+								<span><?= $price; ?> $</span>
 						
 					</div>
 			</div>
