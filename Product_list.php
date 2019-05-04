@@ -9,8 +9,7 @@ $pdo = new PDO("pgsql:" . sprintf(
     ltrim($db["path"], "/")
 ));
 
-$sql = "SELECT * FROM product";
-$result = pg_query($pdo, $sql);
+$result = pg_query($pdo, "SELECT Image, Discount, Price, Discount,Price from product");
 if (!$result) {
   echo "An error occurred.";
   exit;
