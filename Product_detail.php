@@ -222,7 +222,7 @@ $result = pg_query($connection,$sql);
 
 <table style="margin-bottom: 30px; margin-top: 30px;">
 			 <tr>
-  <td rowspan="6"><img src="<?php echo $row["image"]?>" alt="Chania" width="300" height="300" ></td>
+  <td rowspan="6"><img src="<?= $image; ?>" alt="Chania" width="300" height="300" ></td>
     <td style="    padding-right: 20px;"><b>NAME:   </b></td>
     <td style="font-size: 20px"><?= $productname; ?></td>
     
