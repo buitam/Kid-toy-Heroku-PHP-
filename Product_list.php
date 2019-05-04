@@ -1,56 +1,14 @@
-<?php 
-$db = parse_url(getenv("DATABASE_URL"));
-$pdo = new PDO("pgsql:" . sprintf(
-    "host=%s;port=%s;user=%s;password=%s;dbname=%s",
-    $db["host"],
-    $db["port"],
-    $db["user"],
-    $db["pass"],
-    ltrim($db["path"], "/")
-));
+	<?php
+		          include 'ketnoi.php';
+		            $sql = "SELECT productname, price FROM product";
+		            $result = pg_query($connection,$sql);
+		            if (pg_num_rows($result) > 0) {
+		            // output data of each row
+		            while($row = pg_fetch_assoc($result)) {
+		              $productname = $row['productname'];
+		              $price = $row['price'];
+		          ?>
+		         <li><a href="Product_detail.php?productname=<?= $productname; ?>"><?= $price; ?></a></li>
+		       <?php }} 
 
-$result = pg_query($pdo, "SELECT Image, Discount, Price, Discount,Price from product");
-if (!$result) {
-  echo "An error occurred.";
-  exit;
-}
-
-while ($row = pg_fetch_assoc($result)) {
-
-    	?>
-			<div class="oneproduct">
-				<a class="hinhproduct" href="Product_detail2.php?Productid=<?php echo $row["Productid"]?>">
-					<div class="faded">
-					
-					<img src="<?php echo $row["Image"]?>" class="image">
-					<div class="middle">
-				    <div class="discountbox">
-				    	<p>DISCOUNT <?php echo $row["Discount"]?> % </p>
-				    	<p>ONLY 
-				    		<?php
-				    		$Price=$row["Price"];
-				    		$Discount=$row["Discount"];
-				    		echo $Price-($Price * $Discount /100);
-				    		?>$
-				    	</p>
-				    </div>
-				  </div>
-				</div>
-				</a>
-					<div class="thongtinproduct">
-						<span><?php echo $row["Productname"]?></span><br>
-						<span class="explore" >EXPLORE NOW</span><br>
-								<img src="cart-2.png" alt="hình giỏ hàng">
-								<span><?php echo $row["Price"]?> $</span>
-						
-					</div>
-
-				
-
-			</div>
-
-<?php
-	
-}
-
-?>
+		       ?>
