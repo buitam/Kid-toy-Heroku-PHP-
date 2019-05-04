@@ -42,6 +42,41 @@
 						
 					</div>
 			</div>
+
+			<table style="margin-bottom: 30px; margin-top: 30px;">
+			 <tr>
+  <td rowspan="6"><img src="<?= $image; ?>" alt="Chania" width="300" height="300" ></td>
+    <td style="    padding-right: 20px;"><b>NAME:   </b></td>
+    <td style="font-size: 20px"><?= $productname; ?></td>
+    
+  </tr>
+  <tr>
+    <td style="    padding-right: 20px;"><b>PRICE:   </b></td>
+    <td style="font-size: 20px"><del><?= $price; ?> $ </del></td>
+  </tr>
+
+   <tr>
+    <td style="    padding-right: 25px; color: red;"><b>DISCOUNT:   </b></td>
+    <td style="font-size: 25px;color: red"><?= $discount; ?> % </b></td>
+  </tr>
+
+
+  <tr>
+    <td style="    padding-right: 20px; color: red"><b>ONLY:   </b></td>
+    <td style="font-size: 20px;color: red"><b><?= $price; ?>$</b></td>
+  </tr>
+
+  <tr>
+    <td style="    padding-right: 20px;"><b>DESCRIPTION:</b></td>
+    <td style="font-size: 20px"><?= $description; ?></td>
+  </tr>
+
+  <tr><td></td>
+  	<td><br><button onclick="show()" style="width: 100px;color: white">BUY NOW</button></td>
+                      </tr>
+                    
+                     
+</table>
 		       <?php }} 
 
 		       ?>
