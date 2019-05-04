@@ -11,11 +11,9 @@
 		              	$Image = $row['Image'];
 		              	$Discount = $row['Discount'];
 		              	$Productname = $row['Productname'];
-		             
 		         
 		          ?>
 		        <div class="oneproduct">
-				<a class="hinhproduct" href="Product_detail.php?Productid<?= $Productid; ?>"><?= $Productid; ?>
 					<div class="faded">
 					
 					<img src="<?= $Image; ?>" class="image">
