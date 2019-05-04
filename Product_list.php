@@ -15,11 +15,18 @@
 		          ?>
 		        <div class="oneproduct">
 					<div class="faded">
-					
+					<a class="hinhproduct" href="Product_detail.php?productid=<?php echo $row["productid"]?>">
 					<img src="<?= $image; ?>" class="image">
 					<div class="middle">
 				    <div class="discountbox">
 				    	<p>DISCOUNT <?= $discount; ?> % </p>
+				    	<p>ONLY 
+				    		<?php
+				    		$price=$row["price"];
+				    		$discount=$row["discount"];
+				    		echo $price-($price * $discount /100);
+				    		?>$
+				    	</p>
 				 
 				    </div>
 				  </div>
