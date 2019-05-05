@@ -139,7 +139,7 @@
 <?php
 		include 'ketnoi.php';
 		$productid =$_GET['productid'];
-		            $sql = "SELECT productid, image, price, discount, productname FROM product  WHERE productid = '$productid'";
+		            $sql = "SELECT productid, image, price, discount, productname, description FROM product  WHERE productid = '$productid'";
 		            $result = pg_query($connection,$sql);
 		            if (pg_num_rows($result) > 0) {
 		            // output data of each row
