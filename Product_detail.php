@@ -174,7 +174,12 @@
 
   <tr>
     <td style="    padding-right: 20px; color: red"><b>ONLY:   </b></td>
-    <td style="font-size: 20px;color: red"><b><?= $price; ?>$</b></td>
+    <td style="font-size: 20px;color: red"><b>ONLY 
+				    		<?php
+				    		$price=$row["price"];
+				    		$discount=$row["discount"];
+				    		echo $price-($price * $discount /100);
+				    		?>$</b></td>
   </tr>
 
   <tr>

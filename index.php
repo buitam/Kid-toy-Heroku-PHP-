@@ -207,7 +207,7 @@ window.onclick = function(event) {
 <!-- chi tiết sp-->
 
 <div class="container-fluid" style="margin: 25px;
-    margin-left: 230px;">
+    margin-left: 120px;">
 <?php include 'Product_list.php';?>
 </div>
 
