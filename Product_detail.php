@@ -64,7 +64,7 @@
 		<li><img src="logo1.png" width="70px" height="70px" style="margin:5px;margin-left: 50px"></li>
 		<li><h1 style="margin-left: 15px; color: #d04141;
     font-family: cursive;">
-		VIN DE FRANCE</h1></li>
+		ATN SUPPER</h1></li>
 			</ul>
 		</div>
 		
@@ -316,7 +316,7 @@ function closeForm() {
 		<div class="info">
 				<h3>Store Information</h3>
 				<ul>
-					<p style="color:gray">VIN DE FRANCE,<br>
+					<p style="color:gray">ATN SUPPER<br>
 						28 Pham Van Dong,<br>
 						Thanh Xuan,Ha Noi.<br>
 						+0328620615 </p>

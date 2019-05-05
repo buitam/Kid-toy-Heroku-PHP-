@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="style.css" type="text/css">
-	<title>Vin De France</title>
+	<title>ATN SUPPER</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link href="css/hover-min.css" rel="stylesheet">
@@ -136,7 +136,7 @@ window.onclick = function(event) {
 		<li><img src="logo1.png" width="70px" height="70px" style="margin:5px;margin-left: 50px"></li>
 		<li><h1 style="margin-left: 15px; color: #d04141;
     font-family: cursive;">
-		VIN DE FRANCE</h1></li>
+		ATN SUPPER</h1></li>
 			</ul>
 		</div>
 		
@@ -320,7 +320,7 @@ function closeForm() {
 		<div class="info">
 				<h3>Store Information</h3>
 				<ul>
-					<p style="color:gray">VIN DE FRANCE,<br>
+					<p style="color:gray">ATN SUPPER<br>
 						28 Pham Van Dong,<br>
 						Thanh Xuan,Ha Noi.<br>
 						+0328620615 </p>
@@ -349,7 +349,7 @@ function closeForm() {
 			border: 1px solid #484747;">
 		</form>
 	</div>
-	<div class="childfooter" id="rightfooter" style="padding: 20px; padding-left: 40px">© 2018 VIN DE FRANCE. All Rights Reserved | Design by Buitam</div>
+	<div class="childfooter" id="rightfooter" style="padding: 20px; padding-left: 40px">© 2018 ATN SUPPER. All Rights Reserved | Design by Buitam</div>
 
 	</div>
 </div>
