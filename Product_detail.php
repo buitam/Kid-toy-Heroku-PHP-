@@ -44,21 +44,20 @@
 						
 			
 
-</li>
-<li style="    padding: 0px;
-    margin: 12px;"
-><img src="anhlgin.png" width="30px"; height="30px"></li>
+				</li>
+
 				</ul>
 			</div>
 			<div class="giohang">
 				<a href="#"><img src="cart-1.png" alt="hình giỏ hàng"></a>
 				<p><a href="hinhgiohang">Empty Cart</a></p>
 			</div>
-			<p class="hvr-wobble-vertical"><a href="VindeFrance.php" style="text-decoration: none; color: white;">Log out </a></p>
 
 		</div>
 
 	<!-- phần Logo-->
+
+
 	<div class="logo">
 		<div class="logo-Left">
 			<ul>
@@ -73,14 +72,66 @@
 			<ul>
 					<li><a href="VindeFrance.php" class="hvr-underline-from-center"> Home</a></li>
 					<li><a href="VindeFrance.php" class="hvr-underline-from-center"> 
-				
-					</a></li>
+
+</a></li>
 					
 					
 				</ul>
 
 		</div>
 	</div>
+
+
+
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+
+      <div class="item active">
+        <img src="banner.jpg" alt="Chania" width="460" height="345">
+       <!--  <div class="carousel-caption">
+         <h3>Vin De France</h3>
+         <p>Can't Resist the Mist!</p>
+       </div> -->
+      </div>
+
+      <div class="item">
+        <img src="banner2.jpg" alt="Chania" width="460" height="345">
+        <!-- <div class="carousel-caption">
+          <h3>Vin De France</h3>
+          <p>Great Tasting Wine with a Splash of Fruit </p>
+        </div> -->
+      </div>
+    
+      <div class="item">
+        <img src="banner3.jpg" alt="Chania" width="460" height="345">
+        <!-- <div class="carousel-caption">
+          <h3>Vin De France</h3>
+          <p>Just what you've been looking for</p>
+        </div> -->
+      </div>
+
+     
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
 
 <!-- chi tiết sp-->
 		<div class="container" >
