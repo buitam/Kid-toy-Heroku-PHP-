@@ -1,12 +1,5 @@
 
-<?php
-session_start();
-require_once'ketnoi.php';
-$Productid = $_GET["Productid"];
-$sql = "SELECT * FROM product where Productid ='".$Productid . "'";
-$result = $conn->query($sql);
-$row = $result->fetch_assoc();
- ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,7 +74,7 @@ $row = $result->fetch_assoc();
 					<li><a href="VindeFrance2.php" class="hvr-underline-from-center"> Home</a></li>
 					<li><a href="VindeFrance2.php" class="hvr-underline-from-center"> 
 					
-					<?php include 'catalogy-list2.php';?>
+					<!-- <?php include 'catalogy-list2.php';?> -->
 					</a></li>
 					
 					
@@ -140,34 +133,50 @@ $row = $result->fetch_assoc();
 <!-- chi tiết sp-->
 		<div class="container" >
 
+<?php
+		include 'ketnoi.php';
+		$productid =$_GET['productid'];
+		            $sql = "SELECT productid, image, price, discount, productname FROM product  WHERE productid = '$productid'";
+		            $result = pg_query($connection,$sql);
+		            if (pg_num_rows($result) > 0) {
+		            // output data of each row
+		            while($row = pg_fetch_assoc($result)) {
+		            	$productid = $row['productid'];
+		              	$price = $row['price'];
+		              	$image = $row['image'];
+		              	$discount = $row['discount'];
+		              	$productname = $row['productname'];
+		              	$description = $row['description'];
+		         
+		          ?>
+			
+
 <table style="margin-bottom: 30px; margin-top: 30px;">
 			 <tr>
-  <td rowspan="6"><img src="<?php echo $row["Image"]?>" alt="Chania" width="300" height="300" ></td>
+  <td rowspan="6"><img src="<?= $image; ?>" alt="Chania" width="300" height="300" ></td>
     <td style="    padding-right: 20px;"><b>NAME:   </b></td>
-    <td style="font-size: 20px"><?php echo $row["Productname"]?></td>
+    <td style="font-size: 20px"><?= $productname; ?></td>
     
   </tr>
   <tr>
     <td style="    padding-right: 20px;"><b>PRICE:   </b></td>
-    <td style="font-size: 20px"><del><?php echo $row["Price"]?> $ </del></td>
+    <td style="font-size: 20px"><del><?= $price; ?> $ </del></td>
   </tr>
 
    <tr>
     <td style="    padding-right: 25px; color: red;"><b>DISCOUNT:   </b></td>
-    <td style="font-size: 25px;color: red"><b> <?php echo $row["Discount"]?> % </b></td>
+    <td style="font-size: 25px;color: red"><?= $discount; ?> % </b></td>
   </tr>
 
 
   <tr>
     <td style="    padding-right: 20px; color: red"><b>ONLY:   </b></td>
-    <td style="font-size: 20px;color: red"><b><?php $Price=$row["Price"];
-			$Discount=$row["Discount"];
-			echo $Price-($Price * $Discount /100);?>$</b></td>
+    <td style="font-size: 20px;color: red"><b><?= $price; ?>$</b></td>
   </tr>
 
   <tr>
     <td style="    padding-right: 20px;"><b>DESCRIPTION:</b></td>
-    <td style="font-size: 20px"><?php echo $row["Description"]?></td>
+    <td style="font-size: 20px"><?= $description; ?></td>
   </tr>
 
   <tr><td></td>
@@ -176,6 +185,12 @@ $row = $result->fetch_assoc();
                     
                      
 </table>
+
+				<?php
+			}
+			}
+			
+			?>
 <script type="text/javascript">
                         function show(){
                           alert("Buying Successful!");
