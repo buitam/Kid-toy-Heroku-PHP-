@@ -26,7 +26,10 @@
 			<img src="image/banner2.png" alt="DO CHOI" width="1000px" />
 		</div>
 		<div id="main">
-			<?php
+		          
+			<div id="DO CHOI">
+
+				<?php
 		include 'dbconnector.php';
 		            $sql = "SELECT productid, image,  productname FROM product";
 		            $result = pg_query($connection,$sql);
@@ -38,16 +41,12 @@
 		              	$productname = $row['productname'];
 		         
 		          ?>
-		          
-			<div id="DO CHOI">
-				<h2>DO CHOI NAM</h2>
 				<div class="col-3" href="Product_detail.php?productid=<?= $productid; ?>">
 					<img src="<?= $image; ?>"  width="220px" />
 					<h3><?= $productname; ?></h3>
 				</div>
 				
 			</div>
-		\
 		</div>
 		<div id="footer">
 			<div class="row">
