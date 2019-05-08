@@ -44,7 +44,7 @@
 
 			<h1>Do choi 1</h1>
 				<div class="detailIMG col-5">
-					<img src="./image/dochoi1.jpg" width="300px" height="400px" />
+					<img src="<?= $image; ?>" width="300px" height="400px" />
 				</div>
 				<div class="col-5 detail">
 					<form>
@@ -76,7 +76,10 @@
 						</table>
 					</form>
 				</div>
-				
+				 <?php }} 
+
+		       ?>
+
 		</div>
 		<div id="footer">
 			<div class="row">

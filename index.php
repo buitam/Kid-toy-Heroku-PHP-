@@ -45,7 +45,10 @@
 					<img src="<?= $image; ?>"  width="220px" />
 					<h3><?= $productname; ?></h3>
 				</div>
-				
+				 <?php }} 
+
+		       ?>
+
 			</div>
 		</div>
 		<div id="footer">
