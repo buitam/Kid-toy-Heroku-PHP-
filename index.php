@@ -169,29 +169,19 @@ window.onclick = function(event) {
 
       <div class="item active">
         <img src="banner.jpg" alt="Chania" width="460" height="345">
-       <!--  <div class="carousel-caption">
-         <h3>Vin De France</h3>
-         <p>Can't Resist the Mist!</p>
-       </div> -->
+     
       </div>
 
       <div class="item">
-        <img src="banner2.jpg" alt="Chania" width="460" height="345">
-        <!-- <div class="carousel-caption">
-          <h3>Vin De France</h3>
-          <p>Great Tasting Wine with a Splash of Fruit </p>
-        </div> -->
+        <img src="banner.jpg" alt="Chania" width="460" height="345">
+      
       </div>
     
       <div class="item">
-        <img src="banner3.jpg" alt="Chania" width="460" height="345">
-        <!-- <div class="carousel-caption">
-          <h3>Vin De France</h3>
-          <p>Just what you've been looking for</p>
-        </div> -->
+        <img src="banner.jpg" alt="Chania" width="460" height="345">
+   
       </div>
 
-     
 
     <!-- Left and right controls -->
     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
